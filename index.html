@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Redirecting…</title>
+
+<!-- app.py replaces EVERY https://xxxx.trycloudflare.com in this file with the live tunnel URL -->
+<meta http-equiv="refresh" content="0; url=https://placeholder.trycloudflare.com">
+
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --fg: #1b1f24;
+    --muted: #5d6671;
+    --line: #d9dde3;
+    --accent: #1f6feb;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1216;
+      --fg: #e8ebef;
+      --muted: #98a1ac;
+      --line: #2a3038;
+      --accent: #5aa2ff;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 420px; text-align: center; }
+  .spinner {
+    width: 28px; height: 28px; margin: 0 auto 20px;
+    border: 3px solid var(--line);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .spinner { animation: none; } }
+  h1 { font-size: 1.25rem; margin: 0 0 8px; font-weight: 600; }
+  p { margin: 0 0 6px; color: var(--muted); }
+  a { color: var(--accent); word-break: break-all; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="spinner" aria-hidden="true"></div>
+  <h1>Taking you to the site</h1>
+  <p>If nothing happens, open it directly:</p>
+  <p><a id="link" href="https://placeholder.trycloudflare.com">https://placeholder.trycloudflare.com</a></p>
+</main>
+
+<script>
+  // The same URL appears here so JS redirects immediately (meta refresh is the fallback).
+  var TARGET = "https://placeholder.trycloudflare.com";
+  // Keep the path, query and hash if someone opened e.g. /login on the Pages URL.
+  var extra = location.search + location.hash;
+  window.location.replace(TARGET + extra);
+</script>
+</body>
+</html>
